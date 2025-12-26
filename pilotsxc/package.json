@@ -1,16 +1,40 @@
 {
-  "name": "pilotsxc",
+  "name": "studentsxceos-website",
   "version": "1.0.0",
-  "main": "scroll-animations.js",
+  "description": "StudentsxCEOs - Leadership accelerator website connecting students with business leaders",
+  "main": "index.html",
   "scripts": {
     "start": "live-server --port=3000",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "live-server --port=3000 --open=/",
+    "build": "echo 'Static website - no build process required'",
+    "preview": "live-server --port=3001",
+    "test": "echo 'Static website - no tests required' && exit 0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "studentsxceos",
+    "leadership",
+    "business",
+    "education",
+    "indonesia",
+    "spa",
+    "static-website",
+    "vercel",
+    "github-pages"
+  ],
+  "author": "StudentsxCEOs",
+  "license": "MIT",
+  "homepage": "https://github.com/studentsxceos/studentsxceos-website",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/studentsxceos/studentsxceos-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/studentsxceos/studentsxceos-website/issues"
+  },
   "dependencies": {
     "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
