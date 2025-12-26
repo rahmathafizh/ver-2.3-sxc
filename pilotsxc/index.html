@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentsxCEOs - Leadership for the Future</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Page visibility */
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        
+        /* Smooth transitions */
+        .page {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .page.active {
+            opacity: 1;
+        }
+        
+        /* Modal styles for community page */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #86868b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-wrapper">
+        <div class="container flex-center" style="justify-content: space-between; width: 100%;">
+            <a href="/" class="nav-brand" onclick="navigateTo('home', event)">
+                <img src="media/logo.png" alt="StudentsxCEOs Logo" class="nav-logo">
+                <span class="brand-text">StudentsxCEOs</span>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link" onclick="navigateTo('home', event)">Home</a>
+                <a href="/about" class="nav-link" onclick="navigateTo('about', event)">About</a>
+                <a href="/community" class="nav-link" onclick="navigateTo('community', event)">Community</a>
+                <a href="/support" class="nav-link" onclick="navigateTo('support', event)">Support</a>
+                <a href="/contact" class="nav-link" onclick="navigateTo('contact', event)">FAQs</a>
+            </div>
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="/" class="mobile-nav-link" onclick="navigateTo('home', event)">Home</a>
+            <a href="/about" class="mobile-nav-link" onclick="navigateTo('about', event)">About</a>
+            <a href="/community" class="mobile-nav-link" onclick="navigateTo('community', event)">Community</a>
+            <a href="/support" class="mobile-nav-link" onclick="navigateTo('support', event)">Support</a>
+            <a href="/contact" class="mobile-nav-link" onclick="navigateTo('contact', event)">FAQs</a>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero-fullscreen fade-in-up">
+            <div class="container">
+                <h1 style="max-width: 850px; margin: 0 auto; font-size: clamp(40px, 5vw, 72px); letter-spacing: -0.03em;">
+                    Nurture and Connect Future Business Leaders
+                </h1>
+                <p
+                    style="font-size: 24px; margin-top: 24px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.4; color: #86868b;">
+                    Connecting ambitious students with world-class business leaders to shape the future of Indonesia.
+                </p>
+            </div>
+
+            <!-- Impact Marquee -->
+            <div class="impact-marquee-container" style="margin: 40px 0;">
+                <div class="impact-marquee-content">
+                    <!-- Set 1 -->
+                    <div class="impact-item">
+                        <i class="fas fa-users"></i>
+                        <span class="impact-number">70,000+</span>
+                        <span class="impact-label">Future Leaders Impacted</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-shapes"></i>
+                        <span class="impact-number">20+</span>
+                        <span class="impact-label">Programs</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span class="impact-number">300+</span>
+                        <span class="impact-label">Active Fellows</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="impact-number">2,500+</span>
+                        <span class="impact-label">Alumni Created</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-map-location-dot"></i>
+                        <span class="impact-number">5</span>
+                        <span class="impact-label">Active Chapters</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="impact-number">15+</span>
+                        <span class="impact-label">Years of Impact</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-handshake"></i>
+                        <span class="impact-number">100+</span>
+                        <span class="impact-label">Corporate Partners</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-university"></i>
+                        <span class="impact-number">30+</span>
+                        <span class="impact-label">Top Universities</span>
+                    </div>
+
+                    <!-- Duplicate Set 1 -->
+                    <div class="impact-item">
+                        <i class="fas fa-users"></i>
+                        <span class="impact-number">70,000+</span>
+                        <span class="impact-label">Future Leaders Impacted</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-shapes"></i>
+                        <span class="impact-number">20+</span>
+                        <span class="impact-label">Programs</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span class="impact-number">300+</span>
+                        <span class="impact-label">Active Fellows</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="impact-number">2,500+</span>
+                        <span class="impact-label">Alumni Created</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-map-location-dot"></i>
+                        <span class="impact-number">5</span>
+                        <span class="impact-label">Active Chapters</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="impact-number">15+</span>
+                        <span class="impact-label">Years of Impact</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-handshake"></i>
+                        <span class="impact-number">100+</span>
+                        <span class="impact-label">Corporate Partners</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-university"></i>
+                        <span class="impact-number">30+</span>
+                        <span class="impact-label">Top Universities</span>
+                    </div>
+
+                    <!-- Duplicate Set 2 -->
+                    <div class="impact-item">
+                        <i class="fas fa-users"></i>
+                        <span class="impact-number">70,000+</span>
+                        <span class="impact-label">Future Leaders Impacted</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-shapes"></i>
+                        <span class="impact-number">20+</span>
+                        <span class="impact-label">Programs</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span class="impact-number">300+</span>
+                        <span class="impact-label">Active Fellows</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="impact-number">2,500+</span>
+                        <span class="impact-label">Alumni Created</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-map-location-dot"></i>
+                        <span class="impact-number">5</span>
+                        <span class="impact-label">Active Chapters</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="impact-number">15+</span>
+                        <span class="impact-label">Years of Impact</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-handshake"></i>
+                        <span class="impact-number">100+</span>
+                        <span class="impact-label">Corporate Partners</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-university"></i>
+                        <span class="impact-number">30+</span>
+                        <span class="impact-label">Top Universities</span>
+                    </div>
+
+                    <!-- Duplicate Set 3 -->
+                    <div class="impact-item">
+                        <i class="fas fa-users"></i>
+                        <span class="impact-number">70,000+</span>
+                        <span class="impact-label">Future Leaders Impacted</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-shapes"></i>
+                        <span class="impact-number">20+</span>
+                        <span class="impact-label">Programs</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-user-tie"></i>
+                        <span class="impact-number">300+</span>
+                        <span class="impact-label">Active Fellows</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="impact-number">2,500+</span>
+                        <span class="impact-label">Alumni Created</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-map-location-dot"></i>
+                        <span class="impact-number">5</span>
+                        <span class="impact-label">Active Chapters</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <span class="impact-number">15+</span>
+                        <span class="impact-label">Years of Impact</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-handshake"></i>
+                        <span class="impact-number">100+</span>
+                        <span class="impact-label">Corporate Partners</span>
+                    </div>
+                    <div class="impact-item">
+                        <i class="fas fa-university"></i>
+                        <span class="impact-number">30+</span>
+                        <span class="impact-label">Top Universities</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div style="margin-top: 0; display: flex; gap: 16px; justify-content: center;">
+                    <a href="/contact" class="btn btn-primary" onclick="navigateTo('contact', event)">Join the Movement</a>
+                    <a href="/about" class="btn btn-secondary" onclick="navigateTo('about', event)">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regional Chapters Carousel -->
+        <section class="floating-section-navy">
+            <div class="container text-center">
+                <div style="margin-bottom: 40px;">
+                    <h2 style="margin-bottom: 16px; color: #ffffff;">Explore Our Community</h2>
+                    <p style="margin-bottom: 0; color: #d2d2d7; font-size: 20px;">Our impact reaches across key student hubs
+                        in Indonesia.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Static Grid -->
+            <div class="community-grid">
+                <!-- Bandung -->
+                <div class="community-card" style="background-image: url('media/city-bandung.png');">
+                    <div class="card-overlay">
+                        <h3>Bandung</h3>
+                    </div>
+                </div>
+                <!-- East Java -->
+                <div class="community-card" style="background-image: url('media/city-eastjava.png');">
+                    <div class="card-overlay">
+                        <h3>East Java</h3>
+                    </div>
+                </div>
+                <!-- Jakarta -->
+                <div class="community-card" style="background-image: url('media/city-jakarta.png');">
+                    <div class="card-overlay">
+                        <h3>Jakarta</h3>
+                    </div>
+                </div>
+                <!-- Semarang -->
+                <div class="community-card" style="background-image: url('media/city-semarang.png');">
+                    <div class="card-overlay">
+                        <h3>Semarang</h3>
+                    </div>
+                </div>
+                <!-- Yogyakarta -->
+                <div class="community-card" style="background-image: url('media/city-yogyakarta.png');">
+                    <div class="card-overlay">
+                        <h3>Yogyakarta</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center" style="margin-top: 40px;">
+                <a href="/community" class="btn"
+                    style="background-color: #ffffff; color: #07224F; font-weight: 600; box-shadow: 0 4px 14px rgba(0,0,0,0.2);"
+                    onclick="navigateTo('community', event)">Join Our Community</a>
+            </div>
+        </section>
+
+        <!-- Who We Serve Section -->
+        <section class="serve-section">
+            <div class="container">
+                <div class="serve-header">
+                    <h2>Empowering Every Journey</h2>
+                    <p>We support students, corporations, and alumni in achieving their goals.</p>
+                </div>
+
+                <div class="serve-grid">
+                    <!-- Students Card -->
+                    <div class="serve-card student">
+                        <div class="serve-card-header">
+                            <i class="fas fa-graduation-cap serve-card-icon"></i>
+                            <h3>For Students</h3>
+                        </div>
+                        <ul class="serve-list">
+                            <li><i class="fas fa-check"></i> <span>Leadership development programs</span></li>
+                            <li><i class="fas fa-check"></i> <span>Corporate mentorship opportunities</span></li>
+                            <li><i class="fas fa-check"></i> <span>Professional networking events</span></li>
+                            <li><i class="fas fa-check"></i> <span>Skill-building workshops</span></li>
+                        </ul>
+                        <a href="/community" class="serve-btn student" onclick="navigateTo('community', event)">
+                            Join Our Chapters
+                        </a>
+                    </div>
+
+                    <!-- Corporations Card -->
+                    <div class="serve-card corporate">
+                        <div class="serve-card-header">
+                            <i class="fas fa-building serve-card-icon"></i>
+                            <h3>For Corporations</h3>
+                        </div>
+                        <ul class="serve-list">
+                            <li><i class="fas fa-check"></i> <span>Access to top talent pipeline</span></li>
+                            <li><i class="fas fa-check"></i> <span>Brand visibility on campuses</span></li>
+                            <li><i class="fas fa-check"></i> <span>CSR partnership opportunities</span></li>
+                            <li><i class="fas fa-check"></i> <span>Executive mentoring programs</span></li>
+                        </ul>
+                        <a href="/support" class="serve-btn corporate" onclick="navigateTo('support', event)">
+                            Collaborate with Us
+                        </a>
+                    </div>
+
+                    <!-- Alumni Card -->
+                    <div class="serve-card alumni">
+                        <div class="serve-card-header">
+                            <i class="fas fa-trophy serve-card-icon"></i>
+                            <h3>For Alumni</h3>
+                        </div>
+                        <ul class="serve-list">
+                            <li><i class="fas fa-check"></i> <span>Lifetime network access</span></li>
+                            <li><i class="fas fa-check"></i> <span>Career advancement support</span></li>
+                            <li><i class="fas fa-check"></i> <span>Leadership opportunities</span></li>
+                            <li><i class="fas fa-check"></i> <span>Mentorship roles</span></li>
+                        </ul>
+                        <a href="/support" class="serve-btn alumni" onclick="navigateTo('support', event)">
+                            Make Impact with Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <!-- Hero Section -->
+        <section class="hero-fullscreen fade-in-up hero-internal">
+            <div class="container text-center">
+                <h1>
+                    Transforming Indonesia's Brightest Minds
+                </h1>
+                <p>
+                    From ambitious students to globally competitive leaders, StudentsxCEOs embodies the journey of
+                    excellence, purpose, and national impact.
+                </p>
+            </div>
+        </section>
+
+        <!-- About Intro Section -->
+        <section class="bg-white-force" style="padding: 100px 0;">
+            <div class="container text-center">
+                <h2 style="margin-bottom: 40px; font-size: 48px;">About StudentsxCEOs</h2>
+                <div style="max-width: 800px; margin: 0 auto; font-size: 20px; line-height: 1.6; color: #1d1d1f;">
+                    <p style="margin-bottom: 32px; font-weight: 500;">
+                        Founded in October 2010, StudentsxCEOs (SxC) is Indonesia's strategic leadership accelerator and
+                        think-tank, designed with a clear purpose to nurture and connect the nation's next generation of
+                        business leaders.
+                    </p>
+                    <p style="margin-bottom: 48px; color: #86868b; font-size: 20px;">
+                        We serve as the home for a balanced, connected, and high-performing community, uniting ambitious
+                        students who are dedicated to driving Indonesia toward becoming a globally advanced and developed
+                        country. Our approach is focused, intentional, and driven by impact.
+                    </p>
+                    <div style="display: flex; gap: 16px; justify-content: center;">
+                        <a href="/community" class="btn btn-primary" onclick="navigateTo('community', event)">Join Our Community</a>
+                        <a href="/contact" class="btn btn-secondary" onclick="navigateTo('contact', event)">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission Split Section -->
+        <section class="vision-mission-section floating-layout">
+            <div class="vision-mission-wrapper">
+                <!-- Vision Side (Dark) -->
+                <div class="vision-block">
+                    <h2>Our Vision</h2>
+                    <p>
+                        To nurture and connect future business leaders by serving as the home of balanced and connected
+                        leaders who drive the nation toward becoming a globally advanced and developed country.
+                    </p>
+                </div>
+                <!-- Mission Side (Light) -->
+                <div class="mission-block">
+                    <h2>Our Mission</h2>
+                    <ul class="mission-list">
+                        <li>
+                            <div class="mission-icon"><i class="fas fa-check"></i></div>
+                            <span>Attracting candidates who share the same vision and driving motivation.</span>
+                        </li>
+                        <li>
+                            <div class="mission-icon"><i class="fas fa-hammer"></i></div>
+                            <span>Building capabilities to become globally competitive business leaders.</span>
+                        </li>
+                        <li>
+                            <div class="mission-icon"><i class="fas fa-users"></i></div>
+                            <span>Creating a unified, fraternal culture of high-performing individuals and winning
+                                teams.</span>
+                        </li>
+                        <li>
+                            <div class="mission-icon"><i class="fas fa-rocket"></i></div>
+                            <span>Delivering impact through a repeatable model that creates sustainable economic
+                                value.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section class="bg-white-force" style="padding: 100px 0; background-color: white;">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 80px;">
+                    <h2 style="margin-bottom: 16px;">Our Methodology</h2>
+                    <p style="color: #86868b; max-width: 600px; margin: 0 auto; font-size: 20px;">
+                        The <span style="color: #21A1DA; font-weight: 600;">Learn-Share-Impact</span> approach forms the
+                        cornerstone of our leadership development.
+                    </p>
+                </div>
+                <div class="methodology-grid">
+                    <!-- Learn -->
+                    <div class="methodology-card">
+                        <div class="method-icon-circle">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Learn</h3>
+                        <p>
+                            The most successful people are lifelong learners, constantly evolving by mastering new skills to
+                            stay ahead in a changing world.
+                        </p>
+                    </div>
+                    <!-- Share -->
+                    <div class="methodology-card">
+                        <div class="method-icon-circle">
+                            <i class="fas fa-share-nodes"></i>
+                        </div>
+                        <h3>Share</h3>
+                        <p>
+                            Sharing deepens knowledge and reinforces learning, unlocking opportunities that drive greater
+                            personal and collective growth.
+                        </p>
+                    </div>
+                    <!-- Impact -->
+                    <div class="methodology-card">
+                        <div class="method-icon-circle">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Impact</h3>
+                        <p>
+                            Only those who create lasting impact become memorable drivers of personal growth and meaningful
+                            transformation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="floating-section-navy">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 80px;">
+                    <h2 style="margin-bottom: 16px; color: #ffffff;">Our Core Values</h2>
+                    <p style="color: #d2d2d7; max-width: 600px; margin: 0 auto; font-size: 20px;">
+                        The principles that guide everything we do.
+                    </p>
+                </div>
+                <div class="values-grid">
+                    <!-- Friendship -->
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart" style="color: #21A1DA;"></i>
+                        </div>
+                        <h3>Friendship</h3>
+                        <p>
+                            We treat all fellows and alumni as family, supporting each other anytime, anywhere.
+                        </p>
+                    </div>
+                    <!-- Leadership -->
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-crown" style="color: #21A1DA;"></i>
+                        </div>
+                        <h3>Leadership</h3>
+                        <p>
+                            We lead with purpose, starting from ourselves to make a tangible impact on the nation.
+                        </p>
+                    </div>
+                    <!-- Partnership -->
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake" style="color: #21A1DA;"></i>
+                        </div>
+                        <h3>Partnership</h3>
+                        <p>
+                            We grow through collaboration, building strong partnerships to reach our shared vision.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Timeline -->
+        <section class="bg-white-force" style="padding: 100px 0;">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 60px;">
+                    <h2 style="margin-bottom: 16px;">Our Journey</h2>
+                    <p style="color: #86868b; max-width: 600px; margin: 0 auto; font-size: 20px;">
+                        From humble beginnings to nationwide impact.
+                    </p>
+                </div>
+                <div style="max-width: 800px; margin: 0 auto; position: relative;">
+                    <div
+                        style="position: absolute; left: 50%; top: 20px; bottom: 20px; width: 2px; background: #e5e5e5; transform: translateX(-50%);">
+                    </div>
+
+                    <!-- 2010 -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px;">
+                        <div style="width: 45%; text-align: right; padding-right: 40px;">
+                            <h3 style="color: #21A1DA;">2010</h3>
+                            <p style="color: #424245;">First planted our seeds of leadership in Bandung and Jakarta.</p>
+                        </div>
+                        <div
+                            style="width: 20px; height: 20px; background: #21A1DA; border-radius: 50%; z-index: 2; border: 4px solid white;">
+                        </div>
+                        <div style="width: 45%; padding-left: 40px;"></div>
+                    </div>
+
+                    <!-- 2015 -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px;">
+                        <div style="width: 45%;"></div>
+                        <div
+                            style="width: 20px; height: 20px; background: #21A1DA; border-radius: 50%; z-index: 2; border: 4px solid white;">
+                        </div>
+                        <div style="width: 45%; padding-left: 40px;">
+                            <h3 style="color: #21A1DA;">2015</h3>
+                            <p style="color: #424245;">Extended our reach to key student hubs in Yogyakarta, Semarang, and
+                                East Java.</p>
+                        </div>
+                    </div>
+
+                    <!-- Present -->
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="width: 45%; text-align: right; padding-right: 40px;">
+                            <h3 style="color: #21A1DA;">Present</h3>
+                            <p style="color: #424245;">Empowering a nationwide network of 300+ active fellows and thousands
+                                of alumni annually.</p>
+                        </div>
+                        <div
+                            style="width: 20px; height: 20px; background: #21A1DA; border-radius: 50%; z-index: 2; border: 4px solid white;">
+                        </div>
+                        <div style="width: 45%; padding-left: 40px;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Ways to Connect (CTA) -->
+        <section style="padding: 100px 0; background: #ffffff;">
+            <div class="container text-center">
+                <h2 style="margin-bottom: 16px; font-size: 40px; font-weight: 700;">Ready to Dive Deeper?</h2>
+                <p
+                    style="margin-bottom: 40px; font-size: 20px; color: #86868b; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Connect with our nationwide community or help us empower the next generation of leaders.
+                </p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="/community" class="btn btn-primary" onclick="navigateTo('community', event)">
+                        Explore Our Community
+                    </a>
+                    <a href="/support" class="btn btn-secondary" onclick="navigateTo('support', event)">
+                        Support Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Community Page -->
+    <div id="community" class="page">
+        <!-- Hero Section -->
+        <section class="hero-fullscreen fade-in-up hero-internal">
+            <div class="container">
+                <h1 style="max-width: 900px; margin: 0 auto;">
+                    Our Nationwide Community
+                </h1>
+                <p style="max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.4; color: #86868b;">
+                    Partner with our foundation or regional chapters across Indonesia for corporate collaboration, financial
+                    support, or mentorship opportunities.
+                </p>
+            </div>
+        </section>
+
+        <!-- Regional Chapters Section -->
+        <section style="padding: 100px 0; background: #ffffff;">
+            <div class="container">
+                <h2 class="text-center" style="margin-bottom: 16px;">Our Regional Chapters</h2>
+                <p class="text-center"
+                    style="margin-bottom: 60px; font-size: 20px; color: #86868b; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Discover our vibrant chapters across Indonesia's major cities.
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+
+                    <!-- Bandung -->
+                    <div class="card" style="flex: 1 1 300px; max-width: 350px; width: 100%; text-align: center;">
+                        <img src="media/city-bandung.png" alt="Bandung"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; margin-bottom: 24px;">
+                        <h3 style="margin-bottom: 20px;">Bandung</h3>
+                        <div style="margin-bottom: 12px;">
+                            <a href="https://instagram.com/studentsxceosbdg" target="_blank"
+                                style="color: #86868b; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px;">
+                                <i class="fab fa-instagram" style="color: #E4405F; font-size: 18px;"></i>
+                                @studentsxceosbdg
+                            </a>
+                        </div>
+                        <div>
+                            <a href="mailto:bandung@studentsxceos.org"
+                                style="color: #86868b; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px;">
+                                <i class="fas fa-envelope" style="color: #21A1DA; font-size: 16px;"></i>
+                                bandung@studentsxceos.org
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- East Java -->
+                    <div class="card" style="flex: 1 1 300px; max-width: 350px; width: 100%; text-align: center;">
+                        <img src="media/city-eastjava.png" alt="East Java"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; margin-bottom: 24px;">
+                        <h3 style="margin-bottom: 20px;">East Java</h3>
+                        <div style="margin-bottom: 12px;">
+                            <a href="https://instagram.com/studentsxceoseastjava" target="_blank"
+                                style="color: #86868b; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px;">
+                                <i class="fab fa-instagram" style="color: #E4405F; font-size: 18px;"></i>
+                                @studentsxceoseastjava
+                            </a>
+                        </div>
+                        <div>
+                            <a href="mailto:eastjava@studentsxceos.org"
+                                style="color: #86868b; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px;">
+                                <i class="fas fa-envelope" style="color: #21A1DA; font-size: 16px;"></i>
+                                eastjava@studentsxceos.org
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Jakarta -->
+                    <div class="card" style="flex: 1 1 300px; max-width: 350px; width: 100%; text-align: center;">
+                        <img src="media/city-jakarta.png" alt="Jakarta"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; margin-bottom: 24px;">
+                        <h3 style="margin-bottom: 20px;">Jakarta</h3>
+                        <div style="margin-bottom: 12px;">
+                            <a href="https://instagram.com/studentsxceosjkt" target="_blank"
+                                style="color: #86868b; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px;">
+                                <i class="fab fa-instagram" style="color: #E4405F; font-size: 18px;"></i>
+                                @studentsxceosjkt
+                            </a>
+                        </div>
+                        <div>
+                            <a href="mailto:jakarta@studentsxceos.com"
+                                style="color: #86868b; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px;">
+                                <i class="fas fa-envelope" style="color: #21A1DA; font-size: 16px;"></i>
+                                jakarta@studentsxceos.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Semarang -->
+                    <div class="card" style="flex: 1 1 300px; max-width: 350px; width: 100%; text-align: center;">
+                        <img src="media/city-semarang.png" alt="Semarang"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; margin-bottom: 24px;">
+                        <h3 style="margin-bottom: 20px;">Semarang</h3>
+                        <div style="margin-bottom: 12px;">
+                            <a href="https://instagram.com/studentsxceossmg" target="_blank"
+                                style="color: #86868b; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px;">
+                                <i class="fab fa-instagram" style="color: #E4405F; font-size: 18px;"></i>
+                                @studentsxceossmg
+                            </a>
+                        </div>
+                        <div>
+                            <a href="mailto:semarang@studentsxceos.org"
+                                style="color: #86868b; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px;">
+                                <i class="fas fa-envelope" style="color: #21A1DA; font-size: 16px;"></i>
+                                semarang@studentsxceos.org
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Yogyakarta -->
+                    <div class="card" style="flex: 1 1 300px; max-width: 350px; width: 100%; text-align: center;">
+                        <img src="media/city-yogyakarta.png" alt="Yogyakarta"
+                            style="width: 100%; height: 120px; object-fit: cover; border-radius: 12px; margin-bottom: 24px;">
+                        <h3 style="margin-bottom: 20px;">Yogyakarta</h3>
+                        <div style="margin-bottom: 12px;">
+                            <a href="https://instagram.com/studentsxceosjogja" target="_blank"
+                                style="color: #86868b; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px;">
+                                <i class="fab fa-instagram" style="color: #E4405F; font-size: 18px;"></i>
+                                @studentsxceosjogja
+                            </a>
+                        </div>
+                        <div>
+                            <a href="mailto:yogyakarta@studentsxceos.org"
+                                style="color: #86868b; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px;">
+                                <i class="fas fa-envelope" style="color: #21A1DA; font-size: 16px;"></i>
+                                yogyakarta@studentsxceos.org
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Partnership Contact Section -->
+        <section class="floating-section-navy">
+            <div class="container text-center">
+                <h2 style="margin-bottom: 24px; font-size: 40px; font-weight: 700; color: #ffffff;">Partner With Us</h2>
+                <p
+                    style="margin-bottom: 32px; font-size: 20px; color: #d2d2d7; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Interested in media collaborations, event partnerships, mentorship, or supporting our mission? We'd love
+                    to hear from you.
+                </p>
+                <div
+                    style="background: white; padding: 32px 48px; border-radius: 20px; display: inline-block; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);">
+                    <a href="mailto:mail@studentsxceos.org"
+                        style="font-size: 24px; font-weight: 600; color: #21A1DA; text-decoration: none; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-envelope" style="font-size: 28px;"></i>
+                        mail@studentsxceos.org
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get Started CTA -->
+        <section style="padding: 100px 0; background: #ffffff;">
+            <div class="container text-center">
+                <h2 style="margin-bottom: 16px; font-size: 40px; font-weight: 700;">Have Questions?</h2>
+                <p
+                    style="margin-bottom: 40px; font-size: 20px; color: #86868b; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Find answers to frequently asked questions about joining our community, partnerships, and programs.
+                </p>
+                <a href="/contact" class="btn btn-primary" onclick="navigateTo('contact', event)">Read FAQs</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Support Page -->
+    <div id="support" class="page">
+        <!-- Hero Section -->
+        <section class="hero-fullscreen fade-in-up hero-internal">
+            <div class="container">
+                <h1 style="max-width: 900px; margin: 0 auto;">
+                    Support Our Mission
+                </h1>
+                <p style="max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.5; color: #86868b;">
+                    Partner with us to empower Indonesia's next generation of business leaders and create lasting impact
+                    across the nation.
+                </p>
+            </div>
+        </section>
+
+        <!-- Trusted Partners (Grid) -->
+        <section style="padding: 100px 0; background: #ffffff;">
+            <div class="container">
+                <h2 class="text-center" style="margin-bottom: 16px;">Our Trusted Partners</h2>
+                <p class="text-center"
+                    style="margin-bottom: 60px; font-size: 20px; color: #86868b; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Collaborating with industry leaders to drive innovation and create meaningful impact.
+                </p>
+            </div>
+
+            <!-- Row 1 -->
+            <div class="marquee-track white">
+                <div class="marquee-row">
+                    <!-- Original Set -->
+                    <div class="marquee-item"><img src="sponsor/ajaib.png" alt="Ajaib"></div>
+                    <div class="marquee-item"><img src="sponsor/avoskin.png" alt="Avoskin"></div>
+                    <div class="marquee-item"><img src="sponsor/bagikopi.png" alt="Bagi Kopi"></div>
+                    <div class="marquee-item"><img src="sponsor/batindo.png" alt="Batindo"></div>
+                    <div class="marquee-item"><img src="sponsor/bca.png" alt="BCA"></div>
+                    <div class="marquee-item"><img src="sponsor/blibli.png" alt="Blibli"></div>
+                    <div class="marquee-item"><img src="sponsor/bosch.png" alt="Bosch"></div>
+                    <div class="marquee-item"><img src="sponsor/bri.png" alt="BRI"></div>
+                    <div class="marquee-item"><img src="sponsor/cakap.png" alt="Cakap"></div>
+                    <!-- Duplicate Set -->
+                    <div class="marquee-item"><img src="sponsor/ajaib.png" alt="Ajaib"></div>
+                    <div class="marquee-item"><img src="sponsor/avoskin.png" alt="Avoskin"></div>
+                    <div class="marquee-item"><img src="sponsor/bagikopi.png" alt="Bagi Kopi"></div>
+                    <div class="marquee-item"><img src="sponsor/batindo.png" alt="Batindo"></div>
+                    <div class="marquee-item"><img src="sponsor/bca.png" alt="BCA"></div>
+                    <div class="marquee-item"><img src="sponsor/blibli.png" alt="Blibli"></div>
+                    <div class="marquee-item"><img src="sponsor/bosch.png" alt="Bosch"></div>
+                    <div class="marquee-item"><img src="sponsor/bri.png" alt="BRI"></div>
+                    <div class="marquee-item"><img src="sponsor/cakap.png" alt="Cakap"></div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="marquee-track white">
+                <div class="marquee-row reverse">
+                    <!-- Original Set -->
+                    <div class="marquee-item"><img src="sponsor/cakeresume.png" alt="CakeResume"></div>
+                    <div class="marquee-item"><img src="sponsor/gojek.png" alt="Gojek"></div>
+                    <div class="marquee-item"><img src="sponsor/itoen.png" alt="Itoen"></div>
+                    <div class="marquee-item"><img src="sponsor/jbl.png" alt="JBL"></div>
+                    <div class="marquee-item"><img src="sponsor/loreal.png" alt="Loreal"></div>
+                    <div class="marquee-item"><img src="sponsor/lunas.png" alt="Lunas"></div>
+                    <div class="marquee-item"><img src="sponsor/moonchicken.png" alt="Moon Chicken"></div>
+                    <div class="marquee-item"><img src="sponsor/nutrifood.png" alt="Nutrifood"></div>
+                    <div class="marquee-item"><img src="sponsor/oishi.png" alt="Oishi"></div>
+                    <!-- Duplicate Set -->
+                    <div class="marquee-item"><img src="sponsor/cakeresume.png" alt="CakeResume"></div>
+                    <div class="marquee-item"><img src="sponsor/gojek.png" alt="Gojek"></div>
+                    <div class="marquee-item"><img src="sponsor/itoen.png" alt="Itoen"></div>
+                    <div class="marquee-item"><img src="sponsor/jbl.png" alt="JBL"></div>
+                    <div class="marquee-item"><img src="sponsor/loreal.png" alt="Loreal"></div>
+                    <div class="marquee-item"><img src="sponsor/lunas.png" alt="Lunas"></div>
+                    <div class="marquee-item"><img src="sponsor/moonchicken.png" alt="Moon Chicken"></div>
+                    <div class="marquee-item"><img src="sponsor/nutrifood.png" alt="Nutrifood"></div>
+                    <div class="marquee-item"><img src="sponsor/oishi.png" alt="Oishi"></div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="marquee-track white">
+                <div class="marquee-row">
+                    <!-- Original Set -->
+                    <div class="marquee-item"><img src="sponsor/paragon.png" alt="Paragon"></div>
+                    <div class="marquee-item"><img src="sponsor/pizzahut.png" alt="Pizza Hut"></div>
+                    <div class="marquee-item"><img src="sponsor/purwadhika.png" alt="Purwadhika"></div>
+                    <div class="marquee-item"><img src="sponsor/puyo.png" alt="Puyo"></div>
+                    <div class="marquee-item"><img src="sponsor/rohto.png" alt="Rohto"></div>
+                    <div class="marquee-item"><img src="sponsor/syailendra.png" alt="Syailendra"></div>
+                    <div class="marquee-item"><img src="sponsor/tbi.png" alt="TBI"></div>
+                    <div class="marquee-item"><img src="sponsor/woods.png" alt="Woods"></div>
+                    <div class="marquee-item"><img src="sponsor/zenius.png" alt="Zenius"></div>
+                    <!-- Duplicate Set -->
+                    <div class="marquee-item"><img src="sponsor/paragon.png" alt="Paragon"></div>
+                    <div class="marquee-item"><img src="sponsor/pizzahut.png" alt="Pizza Hut"></div>
+                    <div class="marquee-item"><img src="sponsor/purwadhika.png" alt="Purwadhika"></div>
+                    <div class="marquee-item"><img src="sponsor/puyo.png" alt="Puyo"></div>
+                    <div class="marquee-item"><img src="sponsor/rohto.png" alt="Rohto"></div>
+                    <div class="marquee-item"><img src="sponsor/syailendra.png" alt="Syailendra"></div>
+                    <div class="marquee-item"><img src="sponsor/tbi.png" alt="TBI"></div>
+                    <div class="marquee-item"><img src="sponsor/woods.png" alt="Woods"></div>
+                    <div class="marquee-item"><img src="sponsor/zenius.png" alt="Zenius"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why StudentsxCEOs? (Moved from Home/About) -->
+        <section class="floating-section-navy">
+            <div class="container">
+                <h2 class="text-center" style="margin-bottom: 24px; color: #ffffff;">Why Support StudentsxCEOs?</h2>
+                <p class="text-center"
+                    style="max-width: 800px; margin: 0 auto 60px auto; font-size: 20px; line-height: 1.4; color: #d2d2d7;">
+                    Invest in developing Indonesia's future leaders, directly shaping the future of national business and
+                    innovation.
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+                    <!-- Card 1 -->
+                    <div class="card" style="flex: 1 1 350px; max-width: 400px; width: 100%; text-align: center;">
+                        <div
+                            style="width: 50px; height: 50px; background: #e8f2ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px auto;">
+                            <i class="fas fa-bullseye" style="color: #21A1DA; font-size: 24px;"></i>
+                        </div>
+                        <h3 style="margin-bottom: 12px;">Impact-Driven Programs</h3>
+                        <p>Every program is designed to create measurable impact on student development and career outcomes,
+                            ensuring real-world readiness and success.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card" style="flex: 1 1 350px; max-width: 400px; width: 100%; text-align: center;">
+                        <div
+                            style="width: 50px; height: 50px; background: #e8f2ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px auto;">
+                            <i class="fas fa-map-marked-alt" style="color: #21A1DA; font-size: 24px;"></i>
+                        </div>
+                        <h3 style="margin-bottom: 12px;">National Reach</h3>
+                        <p>Your support extends across top 30+ universities and 5 major cities in Indonesia, creating a
+                            nationwide network of future leaders.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card" style="flex: 1 1 350px; max-width: 400px; width: 100%; text-align: center;">
+                        <div
+                            style="width: 50px; height: 50px; background: #e8f2ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px auto;">
+                            <i class="fas fa-user-graduate" style="color: #21A1DA; font-size: 24px;"></i>
+                        </div>
+                        <h3 style="margin-bottom: 12px;">Leaders Made Here</h3>
+                        <p>2,500+ alumni successfully placed in leadership positions across top companies, demonstrating the
+                            effectiveness of our leadership development approach.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Partners (Marquee) -->
+        <section style="padding: 100px 0; background: #ffffff;">
+            <div class="container">
+                <h2 class="text-center" style="margin-bottom: 16px;">Our Media Partners</h2>
+                <p class="text-center"
+                    style="margin-bottom: 60px; font-size: 20px; color: #86868b; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Amplifying our voice and reach through strategic alliances with leading media platforms.
+                </p>
+            </div>
+
+            <!-- Row 1 -->
+            <div class="marquee-track">
+                <div class="marquee-row">
+                    <!-- Set 1 (27 logos) -->
+                    <div class="marquee-item"><img src="medpar/mp180dcipb.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mp180dcui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpaicheui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpaiesec.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpambisvers.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpayo.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpbecomemore.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpbemfebunair.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpbncc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpcc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpcdc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpcedsui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpdoteens.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpeconspace.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfcw.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpffi.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfinancialcamp.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfive.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfosdki.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfpcibinus.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfpciui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfpciunbraw.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpgandeng.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpgcons.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpgdsc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpgenerationgirl.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpgrowthhub.png" alt="Partner"></div>
+                    <!-- Duplicate Set 1 -->
+                    <div class="marquee-item"><img src="medpar/mp180dcipb.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mp180dcui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpaicheui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpaiesec.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpambisvers.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpayo.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpbecomemore.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpbemfebunair.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpbncc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpcc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpcdc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpcedsui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpdoteens.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpeconspace.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfcw.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpffi.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfinancialcamp.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfive.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfosdki.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfpcibinus.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfpciui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpfpciunbraw.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpgandeng.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpgcons.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpgdsc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpgenerationgirl.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpgrowthhub.png" alt="Partner"></div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="marquee-track">
+                <div class="marquee-row reverse">
+                    <!-- Set 2 (27 logos) -->
+                    <div class="marquee-item"><img src="medpar/mpgrowthsckill.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpguui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpicmss.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpiels.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpimagama.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpimpactional.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpinitiateeui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpioc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpisafis.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpitsmunclub.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpiyf.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkanopifeb.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkejarmimpi.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkmdepok.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkmjakarta.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkomunarasi.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkspmfebui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkspmupnvj.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mplifeatfmcg.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmarketeers.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmedcom.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmediaindo.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmerakiasa.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmetrotv.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmpemimpinid.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmss.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpnarasi.png" alt="Partner"></div>
+                    <!-- Duplicate Set 2 -->
+                    <div class="marquee-item"><img src="medpar/mpgrowthsckill.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpguui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpicmss.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpiels.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpimagama.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpimpactional.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpinitiateeui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpioc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpisafis.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpitsmunclub.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpiyf.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkanopifeb.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkejarmimpi.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkmdepok.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkmjakarta.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkomunarasi.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkspmfebui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpkspmupnvj.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mplifeatfmcg.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmarketeers.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmedcom.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmediaindo.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmerakiasa.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmetrotv.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmpemimpinid.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpmss.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpnarasi.png" alt="Partner"></div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="marquee-track">
+                <div class="marquee-row">
+                    <!-- Set 3 (27 logos) -->
+                    <div class="marquee-item"><img src="medpar/mpousean.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mppacc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mppathseeker.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mppetacareers.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpppinewcas.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpproduktifkuy.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpshbinus.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpshitb.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpshunpad.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpskillup.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpspeui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpstarcampus.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpsyahidmun.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mptalentgrowth.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mptalenthub.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mptaxplore.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mptedxprasmul.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mptempatbelajar.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpugmmun.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpuiac.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpuiiw.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpuimun.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpunai.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpvcc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpyes.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpyoutz.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpyrjkt.png" alt="Partner"></div>
+                    <!-- Duplicate Set 3 -->
+                    <div class="marquee-item"><img src="medpar/mpousean.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mppacc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mppathseeker.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mppetacareers.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpppinewcas.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpproduktifkuy.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpshbinus.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpshitb.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpshunpad.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpskillup.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpspeui.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpstarcampus.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpsyahidmun.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mptalentgrowth.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mptalenthub.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mptaxplore.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mptedxprasmul.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mptempatbelajar.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpugmmun.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpuiac.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpuiiw.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpuimun.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpunai.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpvcc.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpyes.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpyoutz.png" alt="Partner"></div>
+                    <div class="marquee-item"><img src="medpar/mpyrjkt.png" alt="Partner"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ways to Support -->
+        <section class="floating-section-navy">
+            <div class="container">
+                <h2 class="text-center" style="margin-bottom: 16px; color: #ffffff;">Ways to Support</h2>
+                <p class="text-center"
+                    style="margin-bottom: 60px; font-size: 20px; color: #d2d2d7; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Choose how you'd like to contribute to our mission.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+
+                    <!-- Corporate Partnership -->
+                    <div class="support-card" style="flex: 1 1 350px; max-width: 400px; width: 100%; text-align: center;">
+                        <div
+                            style="width: 50px; height: 50px; background: #e8f2ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px auto;">
+                            <i class="fas fa-handshake" style="color: #21A1DA; font-size: 24px;"></i>
+                        </div>
+                        <h3>Corporate Partnership</h3>
+                        <p class="description" style="margin-bottom: 24px;">
+                            Collaborate with us to gain brand visibility, access top emerging talent, and align with your
+                            CSR
+                            goals through sponsorship and executive involvement in our talent pipeline programs.
+                        </p>
+                        <a href="/community" class="btn btn-primary" style="width: 100%; text-align: center;" onclick="navigateTo('community', event)">Learn
+                            More</a>
+                    </div>
+
+                    <!-- Financial Support -->
+                    <div class="support-card" style="flex: 1 1 350px; max-width: 400px; width: 100%; text-align: center;">
+                        <div
+                            style="width: 50px; height: 50px; background: #e8f2ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px auto;">
+                            <i class="fas fa-hand-holding-dollar" style="color: #21A1DA; font-size: 24px;"></i>
+                        </div>
+                        <h3>Financial Support</h3>
+                        <p class="description" style="margin-bottom: 24px;">
+                            Make a direct impact by funding our leadership programs, providing student scholarships,
+                            sponsoring events, and supporting the establishment of new chapters across the nation.
+                        </p>
+                        <a href="/community" class="btn btn-primary" style="width: 100%; text-align: center;" onclick="navigateTo('community', event)">Donate
+                            Now</a>
+                    </div>
+
+                    <!-- Mentorship & Expertise -->
+                    <div class="support-card" style="flex: 1 1 350px; max-width: 400px; width: 100%; text-align: center;">
+                        <div
+                            style="width: 50px; height: 50px; background: #e8f2ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px auto;">
+                            <i class="fas fa-chalkboard-user" style="color: #21A1DA; font-size: 24px;"></i>
+                        </div>
+                        <h3>Mentorship & Expertise</h3>
+                        <p class="description" style="margin-bottom: 24px;">
+                            Share your industry expertise and shape future leaders by serving as a mentor, facilitating
+                            workshops, joining our advisory board, or speaking at our national events.
+                        </p>
+                        <a href="/community" class="btn btn-primary" style="width: 100%; text-align: center;" onclick="navigateTo('community', event)">Get
+                            Involved</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Contact Options -->
+        <section style="padding: 100px 0; background: #ffffff;">
+            <div class="container text-center">
+                <h2 style="margin-bottom: 24px; font-size: 40px; font-weight: 700;">Other Ways to Connect</h2>
+                <p
+                    style="margin-bottom: 40px; font-size: 20px; color: #86868b; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Still have questions or want to learn more about our network?
+                </p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="/community" class="btn btn-primary" onclick="navigateTo('community', event)">
+                        Explore Our Community
+                    </a>
+                    <a href="/contact" class="btn btn-secondary" onclick="navigateTo('contact', event)">
+                        Read FAQs
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <!-- Hero Section -->
+        <section class="hero-fullscreen fade-in-up hero-internal">
+            <div class="container">
+                <h1>
+                    Frequently Asked Questions
+                </h1>
+                <p style="max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.5; color: #86868b;">
+                    Do you have a question about StudentsxCEOs? Please select the topic you are interested in to browse our
+                    frequently asked questions.
+                </p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section style="max-width: 800px; margin: 0 auto; background-color: white;">
+            <div class="container">
+
+                <div class="faq-container" style="max-width: 800px; margin: 0 auto; padding-top: 20px;">
+                    <!-- 1. What is SxC -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            What is StudentsxCEOs and what makes it unique?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">StudentsxCEOs (SxC) is Indonesia's premier leadership
+                                accelerator and fraternal organization that bridges exceptional students with today's top
+                                business leaders. Founded in October 2010, we're not just another student club—we're the
+                                number one business-oriented organization in Indonesia, distinguished by our scale and
+                                impact.</p>
+                            <p style="margin-bottom: 16px;">The "x" in our name represents the intersection and
+                                multiplication of potential, symbolizing our belief that when students (future leaders) meet
+                                with CEOs (today's leaders), the result isn't just addition—it's exponential growth through
+                                learning, sharing, and impact-making. We're building a home for balanced and connected
+                                business leaders who will drive Indonesia toward becoming a developed nation.</p>
+                            <p style="margin: 0;">What truly sets us apart is our dual focus: not only do we create programs
+                                to empower students interested in business, but we also provide comprehensive internal
+                                development among our fellows, creating a tight-knit community of future leaders.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. Economic Leaders -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            Why does StudentsxCEOs focus specifically on "business leaders"?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">Indonesia's transformation from a developing to a developed
+                                country requires exceptional business leadership across three complementary domains. First,
+                                we need policy-makers because government shapes the rules of the game. Second, we need
+                                corporate leaders because corporations drive the economy forward. Third, we need
+                                entrepreneurs because startups catalyze innovation and change.</p>
+                            <p style="margin: 0;">StudentsxCEOs serves as "Ground Zero" for nurturing all three types of
+                                leaders, ensuring Indonesia has the balanced leadership ecosystem it needs to thrive. By
+                                focusing on business leadership in this holistic way, we're not just creating business
+                                professionals—we're developing the architects of Indonesia's economic future who can operate
+                                effectively across public, private, and entrepreneurial sectors.</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Who can join -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            Who can join StudentsxCEOs and how selective is the process?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">We attract exceptional candidates from top-tier Indonesian
+                                universities who share our vision and driving motivation. Our fellows typically demonstrate
+                                strong academic performance, leadership potential, entrepreneurial mindset, commitment to
+                                Indonesia's economic development, and open-mindedness with problem-solving abilities.
+                                However, the selectivity actually depends on each chapter's specific context and needs.</p>
+                            <p style="margin: 0;">Here's what we want you to know: we encourage you to apply regardless of
+                                your level of experience. As long as you're genuinely interested in learning, sharing, and
+                                creating impact, you have a place in our recruitment process. We believe potential can come
+                                from unexpected places, and we're committed to identifying and nurturing that potential
+                                wherever we find it.</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. How to apply -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            How do I apply to become a fellow and what does the timeline look like?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">A "fellow" is an official member of our organization. To
+                                become one, you need to apply through the open recruitment process run by the chapter
+                                nearest to your current location. Each chapter manages its own recruitment independently
+                                while maintaining our national standards.</p>
+                            <p style="margin: 0;">Recruitment typically happens around the end of the year or early in the
+                                new year, so we encourage you to prepare yourself now. Keep an eye on your nearest chapter's
+                                social media channels and website for specific announcement dates and application
+                                requirements. The application process is designed not just to select fellows, but also to
+                                give you a preview of what being part of StudentsxCEOs entails.</p>
+                        </div>
+                    </div>
+
+                    <!-- 5. Responsibilities -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            What will I actually do as a StudentsxCEOs fellow and what's the time commitment?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">As a fellow, your role serves three core purposes: personal
+                                development, community impact, and organizational advancement. First, you have the right to
+                                develop yourself through various internal programs we provide. Second, you're expected to
+                                create meaningful impact in your community, regardless of which division you join. Third,
+                                you'll help move the organization faster and further by upholding our vision, mission,
+                                methodology, and values across all chapters.</p>
+                            <p style="margin: 0;">We don't have strict weekly or monthly working hours because we believe in
+                                output over input. As long as you deliver your responsibilities according to the timeline
+                                with good quality and aligned with your job description, you have the flexibility to manage
+                                your own time. The duration of active fellowship typically ranges from 8 to 12 months,
+                                giving you a substantial period to grow, contribute, and make your mark.</p>
+                        </div>
+                    </div>
+
+                    <!-- 6. Locations -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            Where are StudentsxCEOs chapters located and what's the difference between chapters and
+                            generations?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">We currently operate active chapters in five major regions:
+                                Bandung, Jakarta, Yogyakarta, Semarang, and East Java. Each chapter runs independently while
+                                maintaining our national standards and culture. If you're from outside these five areas, we
+                                apologize that due to our current limitations, you can't join as a fellow, but you're more
+                                than welcome to participate in our online events.</p>
+                            <p style="margin: 0;">To clarify the terminology: a "chapter" refers to our geographic division
+                                (like Bandung Chapter or Jakarta Chapter), while "generation" or "batch" refers to the
+                                time-based cohort within each chapter (like Batch 1, Batch 2, etc.). For example, you might
+                                be
+                                "Jakarta Chapter, Batch 5," meaning you're the fifth cohort to join the Jakarta
+                                operations.</p>
+                        </div>
+                    </div>
+
+                    <!-- 7. Expansion -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            Is StudentsxCEOs expanding to new cities?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">Yes, we're actively seeking to expand into new cities beyond
+                                Java, including international locations. We welcome proposals for new regional chapters from
+                                passionate leaders in cities where we don't currently operate.</p>
+                            <p style="margin: 0;">If you're interested in bringing StudentsxCEOs to your city, here's what
+                                we need: a committed local coordinator team with a minimum of five interested students.
+                                Submit your proposal to <a href="mailto:mail@studentsxceos.org"
+                                    style="color: #21A1DA; text-decoration: underline;">mail@studentsxceos.org</a> with
+                                details about your city, your team, and
+                                your vision for the chapter. We're looking for leaders who can maintain our standards while
+                                adapting to local contexts, ensuring that every new chapter adds value to both the local
+                                community and our national network.</p>
+                        </div>
+                    </div>
+
+                    <!-- 8. Network Size -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            How big is the StudentsxCEOs network and what impact have you made?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">Our network is substantial and growing. We have 300+ core
+                                fellows annually rotating among chapters, with each chapter typically hosting around 50-60
+                                active members. Beyond current fellows, we've created a community of 2,500+ alumni across
+                                all chapters who have collectively impacted 70,000+ students from more than 30 top
+                                Indonesian universities.</p>
+                            <p style="margin: 0;">Our ecosystem extends further through partnerships with 100+ corporate
+                                partners and connections with numerous local, national, and international community
+                                partners. We track our impact across multiple dimensions: individual growth through fellows'
+                                career trajectories and leadership positions, community reach through social media
+                                engagement and event participation, economic contribution through microfinance families
+                                supported and business projects launched, and network strength through active corporate
+                                partnerships, inter-chapter collaboration, and alumni engagement.</p>
+                        </div>
+                    </div>
+
+                    <!-- 9. Company Benefits -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            What are the benefits for companies partnering with StudentsxCEOs?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">Partnering with StudentsxCEOs offers your organization three
+                                major value propositions. First, you gain talent pipeline access—direct connection to
+                                Indonesia's top-tier students from 30+ elite universities, pre-vetted high-performing
+                                candidates with leadership training, and early engagement with future policy-makers,
+                                corporate leaders, and entrepreneurs.</p>
+                            <p style="margin-bottom: 16px;">Second, you benefit from brand building opportunities by
+                                positioning your company as a thought leader invested in Indonesia's future, achieving
+                                authentic engagement with high-potential youth audience, and amplifying content
+                                through our social media and summit platforms.</p>
+                            <p style="margin: 0;">Third, you can leverage strategic CSR and innovation through meaningful
+                                corporate social responsibility initiatives like microfinance and mentorship programs,
+                                access to fresh perspectives and innovative ideas through Project-Talks, and the opportunity
+                                to co-create programs that shape Indonesia's next generation of business leaders.</p>
+                        </div>
+                    </div>
+
+                    <!-- 10. Partnership Types -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            What types of partnerships does StudentsxCEOs offer and can we create custom programs?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">We offer flexible partnership arrangements designed to meet your
+                                organization's specific needs and objectives. You can tap into individual programs from each
+                                chapter, or propose new ideas directly to chapters through our <a href="/community"
+                                    style="color: #21A1DA; text-decoration: underline;" onclick="navigateTo('community', event)">community page</a>. For more
+                                general inquiries or proposals, you can contact us at <a
+                                    href="mailto:mail@studentsxceos.org"
+                                    style="color: #21A1DA; text-decoration: underline;">mail@studentsxceos.org</a>.</p>
+                            <p style="margin: 0;">We absolutely offer custom programs and are open to collaboration on
+                                virtually any initiative that aligns with our mission. Whether you're interested in a
+                                one-time event, an ongoing mentorship program, a research project, or something entirely
+                                unique, we're ready to work with you to design something impactful. Just reach out to us via
+                                email with your ideas, and we'll work together to bring them to life.</p>
+                        </div>
+                    </div>
+
+                    <!-- 11. Student Org Collaboration -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            Can student organizations and other communities collaborate with StudentsxCEOs?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">Absolutely! We firmly believe that "more collaboration means
+                                more impact." We've successfully partnered with numerous youth communities, university
+                                entrepreneurship clubs, and various other organizations. If you're a student leader from
+                                another organization and see potential for collaboration, we'd love to hear from you.</p>
+                            <p style="margin: 0;">Simply contact your nearest chapter if available, or reach out through our
+                                general email. We're always looking for synergies that can amplify our collective impact and
+                                create more value for the communities we serve. Collaboration allows us to learn from each
+                                other, share resources, and achieve goals that would be impossible to reach alone.</p>
+                        </div>
+                    </div>
+
+                    <!-- 12. Alumni/Mentor Involvement -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            How can alumni, mentors, and supporters stay involved with StudentsxCEOs?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">We're currently developing a comprehensive alumni program, so
+                                this is an exciting time to reconnect with our community. For now, alumni can contribute by
+                                becoming mentors or advisors—simply message us through email to let us know you're
+                                interested. If you can't join as a fellow but still want to support our mission, there are
+                                many ways to contribute.</p>
+                            <p style="margin: 0;">You can serve as a mentor, sharing your experience and insights with
+                                current fellows. You can be a speaker at our events, inspiring the next generation with your
+                                journey and expertise. You can participate in our programs, bringing your unique perspective
+                                to discussions and workshops. Or you can support us as a donor, helping us expand our reach
+                                and impact. Every form of support helps us move closer to our vision of developing
+                                Indonesia's business leaders, and we're grateful for anyone who wants to be part of this
+                                journey.</p>
+                        </div>
+                    </div>
+
+                    <!-- 13. Contact Info -->
+                    <div class="faq-item" style="margin-bottom: 50px;">
+                        <h3
+                            style="color: #21A1DA; font-size: 24px; font-weight: 600; margin-bottom: 16px; line-height: 1.3;">
+                            Who should I contact for partnerships or specific inquiries?</h3>
+                        <div style="color: #1d1d1f; line-height: 1.6; font-size: 18px;">
+                            <p style="margin-bottom: 16px;">For partnership inquiries and general questions, you can <a
+                                    href="mailto:mail@studentsxceos.org"
+                                    style="color: #21A1DA; text-decoration: underline;">email</a> us your proposal. If you
+                                want to connect with a specific chapter, you can find
+                                their contact information on our <a href="/community"
+                                    style="color: #21A1DA; text-decoration: underline;" onclick="navigateTo('community', event)">community page</a>, where each
+                                chapter's
+                                details are listed.
+                            </p>
+                            <p style="margin: 0;">We've designed our communication channels to make it easy for you to reach
+                                the right people, whether you're interested in organization-wide collaboration or
+                                chapter-specific programs. Don't hesitate to reach out—we're always excited to connect with
+                                individuals and organizations who share our passion for developing Indonesia's future
+                                business leaders.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <!-- Logo Side -->
+                <div>
+                    <img src="media/logo.png" alt="StudentsxCEOs Logo" class="footer-logo">
+                </div>
+
+                <!-- Links Side -->
+                <div class="footer-links-container">
+                    <div class="footer-column">
+                        <h4>Organization</h4>
+                        <ul>
+                            <li><a href="/about" onclick="navigateTo('about', event)">About Us</a></li>
+                            <li><a href="/community" onclick="navigateTo('community', event)">Our Community</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Partnership</h4>
+                        <ul>
+                            <li><a href="/support" onclick="navigateTo('support', event)">Support Us</a></li>
+                            <li><a href="/contact" onclick="navigateTo('contact', event)">Frequently Asked Questions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p style="margin-bottom: 0;">&copy; 2026 StudentsxCEOs. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="mailto:mail@studentsxceos.org"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/company/studentsxceos"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/studentsxceos"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Routing functionality
+        function navigateTo(page, event) {
+            if (event) {
+                event.preventDefault();
+            }
+            
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(p => {
+                p.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(page).classList.add('active');
+            
+            // Update navigation active states
+            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to current page links
+            document.querySelectorAll(`a[href="/${page}"]`).forEach(link => {
+                link.classList.add('active');
+            });
+            
+            // Update page title
+            const titles = {
+                'home': 'StudentsxCEOs - Leadership for the Future',
+                'about': 'About - StudentsxCEOs',
+                'community': 'Community - StudentsxCEOs',
+                'support': 'Support Us - StudentsxCEOs',
+                'contact': 'Contact - StudentsxCEOs'
+            };
+            document.title = titles[page] || titles['home'];
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Update URL without page reload
+            history.pushState({page: page}, '', page === 'home' ? '/' : `/${page}`);
+        }
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.page) {
+                navigateTo(event.state.page);
+            } else {
+                navigateTo('home');
+            }
+        });
+        
+        // Handle initial page load based on URL
+        function handleInitialLoad() {
+            const path = window.location.pathname;
+            let page = 'home';
+            
+            if (path === '/' || path === '') {
+                page = 'home';
+            } else if (path.startsWith('/')) {
+                page = path.substring(1);
+            }
+            
+            // Validate page exists
+            const validPages = ['home', 'about', 'community', 'support', 'contact'];
+            if (!validPages.includes(page)) {
+                page = 'home';
+            }
+            
+            navigateTo(page);
+        }
+        
+        // Floating Navbar Scroll Script
+        const nav = document.querySelector('.nav-wrapper');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            handleInitialLoad();
+        });
+    </script>
+    <script src="scroll-animations.js"></script>
+</body>
+
+</html>
